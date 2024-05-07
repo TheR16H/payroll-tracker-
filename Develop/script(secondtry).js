@@ -1,54 +1,37 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
-// Collect employee data
-// TODO: Get user input to create and return an array of employee objects
 
-const collectEmployees = function() {
-  addEmployeesBtn.addEventListener("click", (addEmployee) => {
+addEmployeesBtn.addEventListener('click',function() {
+//     const userFirstName = prompt('add First Name');
     addEmployee = true;
   while (addEmployee) {
-      let firstName = prompt ("enter first name");
-      let lastName = prompt ("enter last name");
-      let salary = prompt ("enter salary", 0);
-      let number = parseInt(salary);
-      var employeeArray = {
-        firstName: firstName,
-        lastName: lastName,
-        number: number,
-        addEmployee: confirm("add another employee?"),
-    // }; employeesArray();
-    // const result = employeeArray;
-    console.log('userInput'),
-  }});
-    
-    
-// add a push command around here
-}
-collectEmployees();
-// return employeesArray; this blocks the prompt
-// event.preventsDefault(); also blocks prompt
+        let firstName = prompt ("enter first name");
+        let lastName = prompt ("enter last name");
+        let salary = prompt ("enter salary", 0);
+        let number = parseInt(salary);
+        var employeeArray = {
+          firstName: firstName,
+          lastName: lastName,
+          number: number,
+    }}});
 
+// TODO: Get user input to create and return an array of employee objects
 
-
-// TODO: Calculate and display the average salary
-const displayAverageSalary = function() {
  
-displayAverageSalary();
-
-
-// TODO: Select and display a random employee
+// TODO: Calculate and display the average salary
+const displayAverageSalary = function(employeesArray) {
+    const toatlSalary = employeesArray.reduce((acc, emplyee) => acc + employeesArray.salary, 0);
+    const averageSalary = toatlSalary / employeesArray.length;
+    const averge = employeesArray.length;
+    // check to make sure the line below displays the average in the console log 
+    console.log(`the average of salary is: - ${averge}`)
+ 
+}
+//TODO: Select and display a random employee
 const getRandomEmployee = function(employeesArray) {
-  return Math.floor(math.random()* max);
-}
-console.log(getRandomEmployee)
 
 }
-console.log(Math.random());
-getRandomEmployee();
-
-
-
 
 /*
   ====================
