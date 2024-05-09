@@ -2,46 +2,75 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 
+
 addEmployeesBtn.addEventListener('click', function() {
 //     const userFirstName = prompt('add First Name');
-        const firstName = prompt ("enter first name");
-        const lastName = prompt ("enter last name");
-        const salary = prompt ("enter salary", 0);
-        const number = parseInt(salary);
-        console.log('userInput')
+        // const firstName = prompt ("enter first name");
+        // const lastName = prompt ("enter last name");
+        // const salary = prompt ("enter salary");
+        // const number = parseInt(salary);
+        // console.log('does this work?')
 });
 
-const collectEmployees = function(){
-  let addAnother = true;
- while (addAnother) {
-  let firstName = prompt ("enter first name");
-  let lastName = prompt ("enter last name");
-  let salary = prompt ("enter salary", 0);
+// had some help condesing it (former structure on the bottom).
+const employees = [];
 
-  let salary =isNaN(parseFloat(employeeSalary)) 0: parseFloat (employeeSalary);
+const collectEmployees = function() {
+    let addAnother = true;
 
-  employees.push ({
-    firstName: firstName,
-    lastName: lastName,
-    employeeSalary: employeeSalary
-  });
- }
-}
+    while (addAnother) {
+        const firstName = prompt("Enter first name");
+        const lastName = prompt("Enter last name");
+        let salary = prompt("Enter salary");
+
+        displayEmployees(employees);
+
+        // Convert salary to a number
+        salary = parseFloat(salary);
+
+        // Check if salary is a valid number
+        if (isNaN(salary)) {
+            salary = 0; // Default to $0 if not a valid number
+        }
+
+        
+        const employee = {
+            firstName: firstName,
+            lastName: lastName,
+            salary: salary
+        };
+
+        employees.push(employee);
+
+        addAnother = confirm('Do you want to add another employee?');
+    }
+
+    return employees;
+};
+
+addEmployeesBtn.addEventListener('click', function() {
+    const employeeData = collectEmployees();
+    
+});
+
 
  
 // TODO: Calculate and display the average salary
 const displayAverageSalary = function(employeesArray) {
-    const toatlSalary = employeesArray.reduce((acc, emplyee) => acc + employeesArray.salary, 0);
-    const averageSalary = toatlSalary / employeesArray.length;
-    const averge = employeesArray.length;
+    const totalSalary = employeesArray.reduce((acc, salary) => acc + employees.salary, 0);
+    const averageSalary = totalSalary / employeesArray.length;
+    const numberOfEmployees = employeesArray.length;
     // check to make sure the line below displays the average in the console log 
-    console.log(`the average of salary is: - ${averge}`)
+    console.log(`the average of salary is: ${averageSalary}`)
  
 }
 //TODO: Select and display a random employee
 const getRandomEmployee = function(employeesArray) {
-
+const randomIndex = Math.floor(Math.random() * employeesArray.length);
+const randomEmployee = employeesArray[randomIndex];
+console.log(`${randomEmployee.firstName} ${randomEmployee.lastName}`);
 }
+
 
 /*
   ====================
